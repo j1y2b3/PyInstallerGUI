@@ -14,7 +14,7 @@ def Pack(pythonfile: str, *,
          specpath: str | None = None,
          coverdist: bool = False,
          coverwork: bool = False,
-         loglevel: str = 'INFO', # 或 TRACE DEBUG INFO WARN ERROR CRITICAL
+         loglevel: str = 'ERROR', # 或 TRACE DEBUG INFO WARN ERROR CRITICAL
          datas: list[(str, str)] = [], # [(编译时文件位置, 运行时文件位置), ...]
          binaries: list[(str, str)] = [], # 同上
          moreimportpaths: list[str] = [], # 额外导入的包

@@ -1,4 +1,4 @@
 __pycache__/
-temp/
+test_results/
 .vscode/
 pyinstaller-gui.py
