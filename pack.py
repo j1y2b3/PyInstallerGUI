@@ -78,5 +78,4 @@ def Pack(pythonfile: str, *,
     commands = ['pyinstaller'] + commands
     commands = ' '.join(commands)
     #print(commands)
-    retcode = subprocess.run(commands, cwd=path).returncode
-    sys.exit(retcode)
+    subprocess.run(commands, cwd=path)

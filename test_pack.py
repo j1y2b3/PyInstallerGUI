@@ -1,10 +1,12 @@
 import unittest
 from pack import Pack
 
-
+print('Test pack...')
 class TestPack(unittest.TestCase):
 
     def setUp(self):
+
+        print('Setup test...')
 
         self.path = r'D:\jyb\MyProgram\PyInstallerGUI\temp'
 
@@ -29,3 +31,7 @@ class TestPack(unittest.TestCase):
 
         Pack(self.args1[0], **self.args1[1])
         Pack(self.args2[0], **self.args2[1])
+        print('Pack test passed.')
+
+if __name__ == '__main__':
+    unittest.main()
