@@ -1,6 +1,4 @@
 __pycache__/
 .vscode/
-pyinstaller-gui.py
-
-tests/__pycache__/
 tests/results/
+pyinstaller-gui.py
