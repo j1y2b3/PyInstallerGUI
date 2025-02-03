@@ -1,4 +1,5 @@
 import os
+
 import pygame
 
 def get_icon():
