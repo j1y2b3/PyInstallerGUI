@@ -4,4 +4,3 @@ pyinstaller-gui.py
 
 tests/__pycache__/
 tests/results/
-tests/examples/
