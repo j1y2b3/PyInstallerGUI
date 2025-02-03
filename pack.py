@@ -1,4 +1,5 @@
-'''打包实现'''
+'''将python文件打包为可执行文件'''
+
 import os
 import shutil
 import subprocess
@@ -6,6 +7,7 @@ import subprocess
 
 
 class Pack:
+    '''生成完整的应用程序'''
 
     def __init__(self,
                  pythonfile: str, *,
@@ -27,7 +29,6 @@ class Pack:
                  excludemodules: list[str] = [], # 排除的包
                  runtimetmpdir: str | None = None # 运行时临时目录，用于onefile且有datas或binary时
                  ):
-        '''生成完整的应用程序'''
         
         self.pythonfile = pythonfile
         self.path = path
@@ -89,10 +90,10 @@ class Pack:
 
         if self.datas:
             for data in self.datas:
-                self.commands.append(f'--add-data "{data[0]};{data[1]}"')
+                self.commands.append(f'--add-data "{data[0]}:{data[1]}"')
         if self.binaries:
             for binary in self.binaries:
-                self.commands.append(f'--add-binary "{binary[0]};{binary[1]}"')
+                self.commands.append(f'--add-binary "{binary[0]}:{binary[1]}"')
         
         if self.moreimportpaths:
             for importpath in self.moreimportpaths:
@@ -111,11 +112,10 @@ class Pack:
         #PyInstaller.__main__.run(self.commands)
         self.commands = ['pyinstaller'] + self.commands
         self.commands = ' '.join(self.commands)
-        #print(self.commands)
         subprocess.run(self.commands, **self.cwd)
 
     def copy(self, src: str):
-        '''复制文件或文件夹到指定位置
+        '''复制文件或文件夹到exe文件同目录下
         弥补pyinstaller的不足
         '''
 

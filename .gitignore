@@ -1,4 +1,7 @@
 __pycache__/
-run_results/
 .vscode/
 pyinstaller-gui.py
+
+tests/__pycache__/
+tests/results/
+tests/examples/

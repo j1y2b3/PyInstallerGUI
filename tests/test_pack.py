@@ -11,7 +11,7 @@ class TestPack(unittest.TestCase):
     def setUpClass(cls):
 
         # 创建文件夹run_results
-        cls.root = r'D:\jyb\MyProgram\PyInstallerGUI\run_results'
+        cls.root = r'D:\jyb\MyProgram\PyInstallerGUI\tests\results'
         if not os.path.exists(cls.root):
             os.makedirs(cls.root)
 
