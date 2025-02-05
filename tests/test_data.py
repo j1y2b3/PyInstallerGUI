@@ -18,9 +18,9 @@ class TestData(unittest.TestCase):
     def test_get_and_write_recent_paths(self):
 
         file = 'temp.json'
-        paths = ('a', 'b')
+        paths = ['a', 'b']
 
-        self.assertEqual(getRecentPaths(file), ())
+        self.assertEqual(getRecentPaths(file), [])
         writeRecentPaths(paths, file)
         self.assertEqual(getRecentPaths(file), paths)
-        os.remove(os.path.join(root, file))        
+        os.remove(os.path.join(root, file))

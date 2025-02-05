@@ -15,16 +15,16 @@ def getIconPath(style: str = 'console') -> str:
     else:
         raise ValueError('style must be "console" or "windowed"')
 
-def getRecentPaths(file: str = 'recent.json') -> tuple[str]:
+def getRecentPaths(file: str = 'recent.json') -> list[str]:
     '''获取最近打开的Python文件路径'''
 
     path = os.path.join(root, file)
     if not os.path.exists(path):
-        return ()
+        return []
     with open(path, 'r', encoding='utf-8') as file:
-        return tuple(json.load(file))
+        return list(json.load(file))
 
-def writeRecentPaths(paths: tuple[str], file: str = 'recent.json'):
+def writeRecentPaths(paths: list[str], file: str = 'recent.json'):
     '''写入最近打开的Python文件路径'''
 
     path = os.path.join(root, file)
