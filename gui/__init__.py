@@ -3,7 +3,7 @@
 import tkinter as tk
 
 import data
-from head import Head
+from gui.head import Head
 
 class Win:
     '''主窗口'''
@@ -13,7 +13,7 @@ class Win:
         # 初始化窗口
         self.root = tk.Tk()
         self.root.title('PyInstallerGUI')
-        self.root.iconbitmap(data.get_icon_path())
+        self.root.iconbitmap(default=data.getIconPath())
         self.x, self.y = self.root.winfo_screenwidth()//2, self.root.winfo_screenheight()//2
         self.width, self.height = 1000, 600
         self.root.geometry(''.join((f'{self.width}x{self.height}',
@@ -28,6 +28,9 @@ class Win:
 
         # 开启主循环
         self.root.mainloop()
+
+        # 退出程序
+        self.head.exit()
     
     def getcommands(self) -> tuple:
         '''获取命令'''
