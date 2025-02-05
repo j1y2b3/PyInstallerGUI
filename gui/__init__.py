@@ -4,6 +4,8 @@ import tkinter as tk
 
 import data
 from gui.head import Head
+from gui.optional import Optional
+from gui import details
 
 class Win:
     '''主窗口'''
@@ -22,6 +24,7 @@ class Win:
 
         # 初始化各组件
         self.head = Head(self.root, self.getcommands)
+        self.optional = Optional(self.root)
 
         # 放置各组件
         self.place()
@@ -41,3 +44,4 @@ class Win:
         '''放置各组件'''
         
         self.head.place()
+        self.optional.place()

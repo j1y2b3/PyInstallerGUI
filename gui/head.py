@@ -17,9 +17,11 @@ class Head:
 
         self.root = root
         self.getCommands = getcommandsfunction
-        self.frame = ttk.Frame(self.root)
-        self.maxrecentfiles = 8
-        self.nonrecentfiles = '最近没有打开Python文件'
+        self.frame = ttk.Frame(self.root,
+                               relief='solid')
+
+        self.MAXRECENTFILES = 8
+        self.NONRECENTFILES = '最近没有打开Python文件'
         self.recentfiles = self.getRecentFiles()
 
         # 选择Python文件
@@ -58,7 +60,7 @@ class Head:
 
         # 添加
         newfile = self.cbox_pythonfile.get()
-        if newfile == self.nonrecentfiles:
+        if newfile == self.NONRECENTFILES:
             self.cbox_pythonfile.set('')
             return
         if newfile in self.recentfiles:
@@ -68,10 +70,10 @@ class Head:
 
 
         # 更新
-        if self.nonrecentfiles in self.recentfiles:
-            self.recentfiles.remove(self.nonrecentfiles)
+        if self.NONRECENTFILES in self.recentfiles:
+            self.recentfiles.remove(self.NONRECENTFILES)
         
-        self.recentfiles = self.recentfiles[-self.maxrecentfiles:]
+        self.recentfiles = self.recentfiles[-self.MAXRECENTFILES:]
         self.cbox_pythonfile.config(values=self.recentfiles)
 
     def getRecentFiles(self) -> list[str]:
@@ -82,7 +84,7 @@ class Head:
         if self.recentfiles:
             return self.recentfiles
         else:
-            return [self.nonrecentfiles]
+            return [self.NONRECENTFILES]
 
     def writeRecentFiles(self):
         '''写入最近打开的Python文件路径'''
@@ -104,7 +106,7 @@ class Head:
     def place(self):
         '''放置各组件'''
 
-        self.frame.place(x=0, y=0, width=1000, height=150)
+        self.frame.place(x=0, y=0, width=1000, height=90)
 
         self.but_select.place(x=10, y=10, width=300, height=30)
         self.cbox_pythonfile.place(x=10, y=40, width=300, height=30)

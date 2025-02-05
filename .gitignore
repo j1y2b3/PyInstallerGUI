@@ -1,5 +1,6 @@
 __pycache__/
 .vscode/
 results/
-pyinstaller-gui.py
 recent.json
+pyinstaller-gui.py
+ttk.py
