@@ -2,7 +2,7 @@ import os
 import unittest
 
 from data import root
-from data import getIconPath, getRecentPaths, writeRecentPaths
+from data import getIconPath, getRecentFiles, writeRecentFiles
 
 
 class TestData(unittest.TestCase):
@@ -15,13 +15,13 @@ class TestData(unittest.TestCase):
         self.assertRaisesRegex(ValueError, 'style must be "console" or "windowed"',
                                getIconPath, 'other')
     
-    def test_get_and_write_recent_paths(self):
+    def test_get_and_write_recent_files(self):
 
-        file = 'temp.json'
-        paths = ['c', 'a', 'b']
+        jsonfile = 'temp.json'
+        recentfiles = ['c', 'a', 'b']
 
-        self.assertEqual(getRecentPaths(file), [])
-        writeRecentPaths(paths, file)
-        self.assertEqual(getRecentPaths(file), paths)
-        self.assertEqual(getRecentPaths(file)[0], paths[0])
-        os.remove(os.path.join(root, file))
+        self.assertEqual(getRecentFiles(jsonfile), [])
+        writeRecentFiles(recentfiles, jsonfile)
+        self.assertEqual(getRecentFiles(jsonfile), recentfiles)
+        self.assertEqual(getRecentFiles(jsonfile)[0], recentfiles[0])
+        os.remove(os.path.join(root, jsonfile))
