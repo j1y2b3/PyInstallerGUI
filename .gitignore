@@ -1,0 +1,9 @@
+__pycache__/
+
+.*/
+
+results/
+recent.json
+
+pyinstaller-gui.py
+ttk.py
